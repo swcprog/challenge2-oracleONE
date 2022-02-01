@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <title>Jogo da Forca</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="titulo"><h1>Jogo da Forca</h1></div>
+        <span>Por favor, use apenas letras maíusculas sem acento.</span>
+        <br>
+        <span>DICA: Cor em inglês.</span>
+        <div id="letras-certas-e-erradas">
+            <div id = "letras-certas">
+                <h4>Letras certas</h4>
+                <p id="certas"></p>
+            </div>
+            <div id = "letras-erradas">
+                <h4>Letras erradas</h4>
+                <p id="erradas"></p>
+            </div>
+        </div>
+        <p id="letra-repetida" class="invisible">Você já digitou essa letra!</p>
+        <div class="textbox">
+            
+            <textarea id="entrada" name="text" rows="5" cols="33"></textarea>
+
+        </div>
+
+    </div>
+
+    
+</body>
+
+<footer><i>Desenvolvido por Samuel Wesley</i></footer>
+
+<script src="main.js"></script>
+
+</html>

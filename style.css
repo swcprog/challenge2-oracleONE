@@ -1,0 +1,19 @@
+
+#letras-certas-e-erradas{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: solid black;
+    margin: 10px;
+    margin-left: 0;
+}
+
+.invisible{
+    display: none;
+}
+
+#letra-repetida{
+    
+    color: red;
+
+}
