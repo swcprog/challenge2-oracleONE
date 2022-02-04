@@ -9,36 +9,42 @@
     <title>Jogo da Forca</title>
 </head>
 <body>
+
+
+    <div class="titulo">
+        <h1>JOGO DA FORCA</h1>
+    </div>
     <div class="container">
 
-        <div class="titulo"><h1>Jogo da Forca</h1></div>
-        <span>Por favor, use apenas letras maíusculas sem acento.</span>
+        <div class="imagem-forca erro0"></div>
+        <span class="dica">DICA: CORES EM INGLÊS.</span>
+        <span class="dica">POR FAVOR, USE LETRAS MINÚSCULAS E SEM ACENTOS.</span>
         <br>
-        <span>DICA: Cor em inglês.</span>
         <div id="letras-certas-e-erradas">
-            <div id = "letras-certas">
-                <h4>Letras certas</h4>
+            <div id="letras-certas">
+                <h4>Acertos</h4>
                 <p id="certas"></p>
             </div>
-            <div id = "letras-erradas">
-                <h4>Letras erradas</h4>
+            <div id="letras-erradas">
+                <h4>Erros</h4>
                 <p id="erradas"></p>
             </div>
         </div>
-        <p id="letra-repetida" class="invisible">Você já digitou essa letra!</p>
+        <span id="letra-repetida" class="invisible">Você já digitou essa letra!</span>
         <div class="textbox">
-            
-            <textarea id="entrada" name="text" rows="5" cols="33"></textarea>
+
+            <input maxlength="1" type="text" id="entrada" name="text"></input>
+            <button id="btn-entrada">CHUTAR</button>
 
         </div>
 
     </div>
-
-    
+    <footer><i>Desenvolvido por Samuel Wesley</i></footer>
 </body>
 
-<footer><i>Desenvolvido por Samuel Wesley</i></footer>
+
 
 <script src="main.js"></script>
+<script src="sweet-alert/sweetalert2.all.min.js"></script>
 
 </html>

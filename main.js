@@ -1,51 +1,74 @@
-// quase tudo aqui ainda é experimental, aceito sugestões e críticas !
-// ainda não consigo fazer dar certo quando a palavra tem letras repetidas
-// ainda sem estilo, comecei pela lógica
-
-var entrada = document.querySelector("#entrada"); // uma entrada pra pegar as letras
-var palavra = "estante"; // sorteando uma palavra da lista de palavras
-var erros = 0; // variável pra contar os erros
-var palpite = []; // array pra guardar o chute de letra
-var erradas = document.querySelector("#erradas"); //tranzendo a área de letras erradas do HTML
-var certas = document.querySelector("#certas"); // trazendo a área de letras certas do HTML
-var letrasErradas = []; //lista das letras erradas que foram chutadas
-var letraRepetida = document.querySelector("#letra-repetida"); //variável pra enviar uma mensagem quando a letra for repetida
+var entrada = document.querySelector("#entrada"); 
+var palavra = sorteiaPalavra(); 
+var erros = 0; 
+var palpite = [];
+var erradas = document.querySelector("#erradas"); 
+var certas = document.querySelector("#certas"); 
+var letrasErradas = []; 
+var letraRepetida = document.querySelector("#letra-repetida");
+var botaoChutar = document.querySelector("#btn-entrada");
+var imagemForca = document.querySelector(".imagem-forca");
 
 
 
+criaListaPalpite(palavra); 
 
-criaListaPalpite(palavra); //cria uma lista com os chutes
 
-
-entrada.addEventListener("click",compara); //envia a letra quando o campo de texto é clicado
+botaoChutar.addEventListener("click",compara); 
     
-function compara(){ //funcao que testa se o chute é certo ou errado
+function compara(){ 
 
-    var texto = entrada.value.split(""); //faz funcionar mesmo se o usuário digitar um trecho da palavra de uma vez, como se fosse o "chute final"
-
+    var texto = entrada.value.split(""); 
    
     for (var index = 0; index < texto.length; index++) {
 
         var letra = texto[index]; 
 
-        if (palavra.indexOf(letra) == -1){ //verficando se o palpite não existe na palavra - foi a forma que eu encontrei pra fazer
+        if (palavra.indexOf(letra) == -1){ 
 
-            var letrasErradasAux = letrasErradas.join(""); // fazendo verificação pra que a letra errada não se repita
+            var letrasErradasAux = letrasErradas.join(""); 
 
-            if(letrasErradasAux.indexOf(letra) == -1){ //caso a letra não tenha sido testada ainda 
+            if(letrasErradasAux.indexOf(letra) == -1){ 
 
                
-                entrada.value = ""; //limpando a entrada
-                erros++; //incrementando o contador de erros
-                letrasErradas.push((letra+" ")); //colocando o palpite errado na lista de palpites errados
-                erradas.innerHTML = letrasErradas.join("").toUpperCase(); //exibindo na tela o palpite errado
-                letraRepetida.classList.add("invisible"); //deixando a mensagem de "letra repetida" invisível
+                entrada.value = ""; 
+                erros++; 
+                letrasErradas.push((letra+" ")); 
+                erradas.innerHTML = letrasErradas.join("").toUpperCase(); 
+                letraRepetida.classList.add("invisible"); 
 
-            }else{ //quando a entrada errada se repete
+                if (letrasErradas.length == 1) {
+                    imagemForca.classList.remove("erro0");
+                    imagemForca.classList.add("erro1")
+                }
+                if (letrasErradas.length == 2) {
+                    imagemForca.classList.remove("erro1");
+                    imagemForca.classList.add("erro2")
+                }
+                if (letrasErradas.length == 3) {
+                    imagemForca.classList.remove("erro2");
+                    imagemForca.classList.add("erro3")
+                }
+
+                if (letrasErradas.length == 4) {
+                    imagemForca.classList.remove("erro3");
+                    imagemForca.classList.add("erro4")
+                }
+
+                if (letrasErradas.length == 5) {
+                    imagemForca.classList.remove("erro4");
+                    imagemForca.classList.add("erro5")
+                }
+                if (letrasErradas.length == 6) {
+                    imagemForca.classList.remove("erro5");
+                    imagemForca.classList.add("erro6")
+                }
+
+            }else{ 
                 
                 
-                entrada.value=""; //limpando a entrada
-                letraRepetida.classList.remove("invisible"); //deixando a mensagem de "letra repetida" visível
+                entrada.value="";
+                letraRepetida.classList.remove("invisible"); 
                 
             }
 
@@ -54,47 +77,46 @@ function compara(){ //funcao que testa se o chute é certo ou errado
               
             if(palpite.includes(letra)){
 
-                letraRepetida.classList.remove("invisible"); //deixando a mensagem de "letra repetida" visível
+                letraRepetida.classList.remove("invisible"); 
 
             }
 
-            entrada.value = ""; //limpando o campo da entrada
+            entrada.value = ""; 
 
             for(var i = 0; i<palavra.length; i++){
 
-                var posicao = palavra.indexOf(letra,i); //pegando a posição onde o palpite se encaixa na palavra
+                var posicao = palavra.indexOf(letra,i); 
             
-                if(palpite[posicao]==letra){ //caso o palpite correto se repita
-
-                    
+                if(palpite[posicao]==letra){                    
                      
                 
 
-                }else{ //caso seja a primeira ocorrencia do determinado palpite correto
+                }else{ 
                     
                     
 
-                        palpite[posicao]=letra; //trocando a letra na posicão correta da lista de palpites
-                        certas.innerHTML = palpite.join("").toUpperCase(); //exibindo a letra na área de letras corretas
-                        letraRepetida.classList.add("invisible"); //deixando a mensagem de "letra repetida" invisível
-                        verificaFim(); //verifica se já acertou todas as letras pra acabar o jogo              
+                        palpite[posicao]=letra; 
+                        certas.innerHTML = palpite.join("").toUpperCase(); 
+                        letraRepetida.classList.add("invisible"); 
+                        verificaFim();       
                 }
-            }    
+            } 
+            
         }
 
-        if (erros > 3){ //se errar três vezes o jogo acaba - coloquei poucos erros pra ocasião de teste
+        if (erros > 7){ 
 
 
             setTimeout(function(){
 
 
-                location.reload() //recarrega a página
+                location.reload() 
 
                 alert("Seu pescoço foi pra forca, a palavra certa era " + "***" + palavra.toUpperCase()+ "***");
 
                 
 
-            },500)
+            },300)
 
             
             
@@ -102,10 +124,12 @@ function compara(){ //funcao que testa se o chute é certo ou errado
         }
 
     }
+
+    entrada.focus();
     
 }
 
-function criaListaPalpite(palavra){ //função pra que a lista de palpites tenha o mesmo tamanho da palvra
+function criaListaPalpite(palavra){ 
     for(i=0;i<(palavra.length);i++){
         palpite.push("_ ");
     }
@@ -113,7 +137,7 @@ function criaListaPalpite(palavra){ //função pra que a lista de palpites tenha
     return palpite;
 }
 
-function verificaFim(){ //função pra verificar se o jogo já terminou, caso o número de acertos seja do tamanho da palavra a ser descoberta
+function verificaFim(){ 
     
     var palpiteAux = palpite.join("");
 
@@ -122,18 +146,19 @@ function verificaFim(){ //função pra verificar se o jogo já terminou, caso o 
         
 
         setTimeout(function(){
-            alert("vc venceu");
+            alert("Parabéns, você venceu!");
+            alerta("error",title,text)
             
             
-        },1500)  
+        },500)  
 
         setTimeout(function(){
             location.reload();
-        },1501)  
+        },501)  
     }
 }
 
-function sorteiaPalavra(){ //função pra sortear uma palavra ateatoriamente
+function sorteiaPalavra(){ 
 
     var palavras = ["red", "black", "blue", "grey", "coral", "white", "pink", "brown", "ciano", "orange"];
 
@@ -147,4 +172,14 @@ function sorteiaPalavra(){ //função pra sortear uma palavra ateatoriamente
 
     return palavra;
 
+}
+
+function alerta(type,title,text){
+
+    Swal.fire({
+        icon: type,
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        
+      })
 }

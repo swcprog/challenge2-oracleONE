@@ -1,13 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap');
 
-#letras-certas-e-erradas{
-    display: flex;
+body{
+    margin:0;
+    font-family: 'Syne Tactile', monospace;
+    height: 100vh;
+    width: 100%;
+    background-image: url(/img/bg_1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    border: solid black;
-    margin: 10px;
-    margin-left: 0;
+    cursor: url("cursor.png"), auto;
 }
 
+body *{
+    box-sizing: border-box;
+}
+
+.container{
+    font-family: 'Syne Tactile', monospace;
+    background-image: url(/img/bg_all.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:900px;
+    height:95%;
+    margin: auto;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.623);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+#letras-certas-e-erradas{
+    
+    text-transform: uppercase;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.137);
+    
+}
+.titulo{
+    font-family: 'Syne Tactile', monospace;
+    width: 100%;
+    text-align: center;
+    color: rgb(53, 34, 34);
+}    
+    
 .invisible{
     display: none;
 }
@@ -17,8 +63,121 @@
     color: red;
 
 }
-
-.titulo{
-    border: solid blue;
+.dica{
+    font-weight: 700;
+    font-size: 15px;
+    
+}
+footer{
+    text-align: center;
+    margin: 10px;
 }
 
+
+.imagem-forca{
+    width:230px;
+    height: 230px;
+    margin-bottom: 25px;
+    margin-top: 100px;
+    margin-right: 12%;
+}
+
+.textbox{
+    margin-bottom: 25px;
+}
+
+.erro0{
+    background-image: url(/img/forcaInteiraGrama.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.erro1{
+    background-image: url(/img/erro-1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro2{
+    background-image: url(/img/erro-2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro3{
+    background-image: url(/img/erro-3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro4{
+    background-image: url(/img/erro-4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro5{
+    background-image: url(/img/erro-5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro6{
+    background-image: url(/img/erro-6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro7{
+    background-image: url(/img/erro-7.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro8{
+    background-image: url(/img/erro8.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.erro9{
+    background-image: url(/img/erro9.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+button{
+    background-color: #f4972d;
+    border: none;
+    box-shadow: 0px 5px 0px #db7603;
+    font-weight: bolder;
+    height: 30px;
+    width: 100px;
+    
+}
+
+button:hover{
+    background-color: #db7603;
+    box-shadow: 0px 5px 0px #9e5706;
+    cursor: url(cursor_hover.png),auto;
+}
+
+button:active{
+    position: relative;
+    top: 5px;
+    box-shadow: none;
+}
+
+input{
+    outline: none;
+    background-color: rgba(255, 127, 80, 0.527);
+    border: none;
+    width: 50px ;
+    font-size: 14pt;
+}
+
+#certas{
+    color: rgb(53, 34, 34);
+    font-weight: bold;
+}
+
+#erradas{
+    color: rgb(53, 34, 34);
+    font-weight: bold;
+}
+h4{
+    color:#386d1e;
+}
