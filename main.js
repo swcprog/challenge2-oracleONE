@@ -1,5 +1,4 @@
 var entrada = document.querySelector("#entrada"); 
-var palavra = sorteiaPalavra(); 
 var erros = 0; 
 var palpite = [];
 var erradas = document.querySelector("#erradas"); 
@@ -8,10 +7,13 @@ var letrasErradas = [];
 var letraRepetida = document.querySelector("#letra-repetida");
 var botaoChutar = document.querySelector("#btn-entrada");
 var imagemForca = document.querySelector(".imagem-forca");
+var palavras = ["red", "black", "blue", "grey", "coral", "white", "pink", "brown", "ciano", "orange"];
+var palavra = sorteiaPalavra(palavras); 
 
 
 
-criaListaPalpite(palavra); 
+criaListaPalpite(palavra);
+entrada.focus(); 
 
 
 botaoChutar.addEventListener("click",compara); 
@@ -109,13 +111,9 @@ function compara(){
 
             setTimeout(function(){
 
-
-                location.reload() 
-
-                alert("Seu pescoço foi pra forca, a palavra certa era " + "***" + palavra.toUpperCase()+ "***");
-
-                
-
+                alertaPerdeu(palavra);
+              
+               
             },300)
 
             
@@ -146,40 +144,57 @@ function verificaFim(){
         
 
         setTimeout(function(){
-            alert("Parabéns, você venceu!");
-            alerta("error",title,text)
+            alertaVenceu(palavra);
             
             
         },500)  
-
-        setTimeout(function(){
-            location.reload();
-        },501)  
+ 
     }
 }
 
-function sorteiaPalavra(){ 
-
-    var palavras = ["red", "black", "blue", "grey", "coral", "white", "pink", "brown", "ciano", "orange"];
-
+function sorteiaPalavra(palavras){ 
+    
     var tamanho = palavras.length;
-
     var index = Math.floor(Math.random()* tamanho);
-
-    console.log(index);
-
     var palavra = palavras[index];
-
     return palavra;
 
 }
 
-function alerta(type,title,text){
-
-    Swal.fire({
-        icon: type,
-        title: 'Oops...',
-        text: 'Something went wrong!',
+function alertaPerdeu(palavra){
+      Swal.fire({
+        title: 'Uhhg!!',
+        text: 'A palavra certa era *'+palavra.toUpperCase()+"*",
+        imageUrl: "img/bg_sweetalert.gif",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
         
       })
+    var botaoSweet = Swal.getConfirmButton();
+    botaoSweet.addEventListener("click",recarregar);
 }
+
+
+function alertaVenceu(palavra){
+      Swal.fire({
+        title: 'Parabéns!!',
+        text: "Você venceu o desafio, pronto pro próximo ?",
+        imageUrl: "img/bg_sweetalert2.gif",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        
+      })
+      var botaoSweet = Swal.getConfirmButton();
+      botaoSweet.addEventListener("click",recarregar);
+    
+
+}
+
+function recarregar(){
+    location.reload();
+}
+
+
+

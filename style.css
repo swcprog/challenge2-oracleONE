@@ -1,17 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap');
 
+
 body{
     margin:0;
     font-family: 'Syne Tactile', monospace;
-    height: 100vh;
-    width: 100%;
-    background-image: url(/img/bg_1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
     cursor: url("cursor.png"), auto;
 }
 
@@ -21,7 +14,7 @@ body *{
 
 .container{
     font-family: 'Syne Tactile', monospace;
-    background-image: url(/img/bg_all.png);
+    background-image: url("/img/bg_all.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -35,38 +28,69 @@ body *{
    
 }
 
+.pai{
+
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/bg_1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 #letras-certas-e-erradas{
     
     text-transform: uppercase;
     display: flex;
-    width: 80%;
-    align-items: center;
+    width: 95%;
     justify-content: space-around;
-    font-size: 25px;
-    margin-bottom: 25px;
-    background-color: rgba(0, 0, 0, 0.137);
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(204, 221, 204, 0.603);
+    text-align: center;
+    
+
     
 }
 .titulo{
-    font-family: 'Syne Tactile', monospace;
-    width: 100%;
+    display: flex;
     text-align: center;
-    color: rgb(53, 34, 34);
-}    
+    width: 80%;
+    
+}  
+
+#title{
+    width: 250px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
     
 .invisible{
-    display: none;
+    visibility: hidden;
 }
 
 #letra-repetida{
     
     color: red;
+    margin-bottom: 5px;
 
 }
 .dica{
     font-weight: 700;
     font-size: 15px;
-    
+      
+}
+.dica2{
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 20px;  
 }
 footer{
     text-align: center;
@@ -83,7 +107,8 @@ footer{
 }
 
 .textbox{
-    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .erro0{
@@ -166,18 +191,56 @@ input{
     background-color: rgba(255, 127, 80, 0.527);
     border: none;
     width: 50px ;
+    height: 30px;
     font-size: 14pt;
+    
 }
 
 #certas{
     color: rgb(53, 34, 34);
     font-weight: bold;
+    display: flex;
+    text-align: center;
 }
 
 #erradas{
     color: rgb(53, 34, 34);
     font-weight: bold;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-h4{
-    color:#386d1e;
+
+.swal2-styled.swal2-confirm{
+
+   
+    background-color: #f4972d; 
+    border: none;
+    box-shadow: 0px 5px 0px #db7603;
+    font-weight: bolder;
+    height: 30px;
+    width: 100px;
+    outline: none;
+    border-radius: none;
+
+}
+a{
+    text-decoration: none;
+    color: #f4972d;
+}
+
+.my-validation-message::before {
+    display: none;
+}
+
+.my-validation-message i {
+    margin: 0 .4em;
+    color: #f27474;
+    font-size: 1.4em;
+}
+
+#adicionar-palavra{
+    width: 200px;
+    margin-top: 10px;
 }
