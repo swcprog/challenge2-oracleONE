@@ -7,6 +7,7 @@ function adicionePalavra(){
         customClass: {
         validationMessage: 'my-validation-message'
         },
+        confirmButtonColor: "#000",
         preConfirm: (value) => {
         if (!value) {
             Swal.showValidationMessage(
@@ -16,6 +17,7 @@ function adicionePalavra(){
         }       
     })
     var botaoConfirma = Swal.getConfirmButton();
+    
     botaoConfirma.addEventListener("click",function(){
     input = Swal.getInput();
     novaPalavra = input.value;
@@ -26,8 +28,7 @@ function adicionePalavra(){
 
     }
 })
-    
- }
+}
 
 
 
