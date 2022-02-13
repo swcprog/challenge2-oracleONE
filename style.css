@@ -225,10 +225,7 @@ input{
     border-radius: none;
 
 }
-a{
-    text-decoration: none;
-    color: #f4972d;
-}
+
 
 .my-validation-message::before {
     display: none;
@@ -243,4 +240,68 @@ a{
 #adicionar-palavra{
     width: 200px;
     margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+
+    @page{
+       size: landscape;
+   }
+
+   body{
+       box-sizing: border-box;
+       height: 100vh;
+       width: 100vw;
+       margin: 0;
+       padding: 0;
+       font-size: 80%;
+   }
+
+   .pai{
+       justify-content: space-between;
+       margin: 0;
+       padding: 0;
+       background-position: top;
+       background-size: cover;
+   }
+
+   .container{
+       width: 90%;
+       height: 90%;
+       display: flex;
+   }
+
+   .dica {
+       font-size: 14px;
+   }
+
+   .dica2{
+       margin: 0;
+       font-size: 14px;
+       justify-self: flex-end;
+   }
+   
+   #letras-certas-e-erradas{
+       font-size: 16px;
+       padding: 5px;
+
+   }
+
+   footer{
+       display: none;
+   }
+
+   #adicionar-palavra{
+
+       margin: 0;
+
+   }
+
+   #title{
+       display: none;
+   }
+   
+   .imagem-forca{
+       margin-top: 5px;
+   } 
 }

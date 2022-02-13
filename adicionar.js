@@ -7,7 +7,7 @@ function adicionePalavra(){
         customClass: {
         validationMessage: 'my-validation-message'
         },
-        confirmButtonColor: "#000",
+        confirmButtonColor: "#f4972d",
         preConfirm: (value) => {
         if (!value) {
             Swal.showValidationMessage(
