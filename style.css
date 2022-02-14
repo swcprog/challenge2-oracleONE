@@ -242,7 +242,7 @@ input{
     margin-top: 10px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 450px) {
 
     @page{
        size: landscape;
@@ -284,6 +284,11 @@ input{
    #letras-certas-e-erradas{
        font-size: 16px;
        padding: 5px;
+       height: 100px;
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       margin-top: -20px;
 
    }
 
@@ -302,6 +307,31 @@ input{
    }
    
    .imagem-forca{
-       margin-top: 5px;
+       margin-top: 50px;
+       margin-right: 0;
+       
    } 
+   .textbox{
+       
+       align-self: center;
+       justify-self: center;
+       display: inline-block;
+       order: 1;
+       width: 90%;
+
+   }
+
+   #btn-entrada{
+       height:  90%;
+       width: 80%;
+   }
+
+   #letras-certas{
+       width: 200px;
+   }
+
+   #letras-erradas{
+       width: 100px;
+   }
+
 }
