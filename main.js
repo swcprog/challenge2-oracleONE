@@ -7,8 +7,30 @@ var letrasErradas = [];
 var letraRepetida = document.querySelector("#letra-repetida");
 var botaoChutar = document.querySelector("#btn-entrada");
 var imagemForca = document.querySelector(".imagem-forca");
-var palavras = ["red", "black", "blue", "grey", "coral", "white", "pink", "brown", "ciano", "orange"];
-var palavra = sorteiaPalavra(palavras); 
+var cores = ["red", "black", "blue", "grey", "coral", "white", "pink", "brown", "ciano", "orange"];
+var frutas = ["apple", "peache", "cherry", "clementine", "guava", "melon", "pineapple", "grape", "coconut", "lemon","papaya"];
+var animais = ["alligator", "bat", "bear", "butterfly", "camel", "chameleon", "chicken", "dolphin", "donkey", "elephant","fish", "frog", "cow", "fox","pig","mouse"];
+var array = [];
+array.push(animais);
+array.push(cores);
+array.push(frutas);
+var listaSorteada = sorteiaPalavra(array);
+console.log(listaSorteada);
+var palavra = sorteiaPalavra(listaSorteada); 
+console.log(palavra)
+spanDica = document.querySelector(".dica");
+
+if (listaSorteada == cores) {
+    spanDica.innerHTML = "DICA: CORES EM INGLÊS."
+}
+
+if (listaSorteada == frutas) {
+    spanDica.innerHTML = "DICA: FRUTAS EM INGLÊS."
+}
+
+if (listaSorteada == animais) {
+    spanDica.innerHTML = "DICA: ANIMAIS EM INGLÊS."
+}
 
 
 

@@ -90,8 +90,10 @@ body *{
 .dica2{
     font-weight: 700;
     font-size: 15px;
-    margin-bottom: 20px;  
+    margin-bottom: 20px;
+    visibility: hidden;  
 }
+
 footer{
     text-align: center;
     margin: 10px;
@@ -242,6 +244,15 @@ input{
     margin-top: 10px;
 }
 
+#title-mobile{
+    visibility: hidden;
+}
+
+.container::input::placeholder{
+    text-transform: uppercase;
+    font-size: 14pt;
+}
+
 @media (max-width: 450px) {
 
     @page{
@@ -279,6 +290,7 @@ input{
        margin: 0;
        font-size: 14px;
        justify-self: flex-end;
+       visibility: visible;
    }
    
    #letras-certas-e-erradas{
@@ -305,6 +317,11 @@ input{
    #title{
        display: none;
    }
+
+   #title-mobile{
+    visibility: visible;
+    color:#3f280d;
+}
    
    .imagem-forca{
        margin-top: 50px;
@@ -323,7 +340,7 @@ input{
 
    #btn-entrada{
        height:  90%;
-       width: 80%;
+       width: 60%;
    }
 
    #letras-certas{
