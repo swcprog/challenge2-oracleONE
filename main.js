@@ -19,8 +19,9 @@ entrada.focus();
 botaoChutar.addEventListener("click",compara); 
     
 function compara(){ 
-
-    var texto = entrada.value.split(""); 
+    var textAux = entrada.value.toLowerCase();
+    var texto = textAux.split("");
+    
    
     for (var index = 0; index < texto.length; index++) {
 
@@ -117,8 +118,7 @@ function compara(){
             },300)
 
             
-            
-            
+        
         }
 
     }
